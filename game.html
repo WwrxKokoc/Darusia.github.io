@@ -337,7 +337,7 @@
 	<div id="PrizzeScreen" class="game" style="display: none;">
 		<h1>Поздравляю со званием САМАЯ ЛУЧШАЯ ДЕВУШКА!❤️</h1>
 
-		<video width="100%" controls id="finalVideo" preload="none">
+		<video width="100%" controls id="finalVideo" preload="none" muted>
 			<source src="video.mp4" type="video/mp4">
 		</video>
 		<br><br>
@@ -430,9 +430,19 @@
 			document.getElementById("PrizzeScreen").style.display = "block";
 
 			const video = document.getElementById("finalVideo");
-			video.pause();
+			video.muted = false;
 			video.currentTime = 0;//на всякий случай
+			video.play()
 		}
+		window.onload = function(){
+			const video = document.getElementById("finalVideo");
+
+			if (video) {
+				video.pause();
+				video.currentTime = 0;
+				video.muted = true;
+			}
+		};
 	</script>
 </body>
 </html>
