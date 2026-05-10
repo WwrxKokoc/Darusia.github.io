@@ -18,6 +18,7 @@
       background: #000;
       font-family: Arial, sans-serif;
       color: white;
+      overflow-x: hidden;
     }
 
     /* Левый блок */
@@ -109,17 +110,15 @@
     }
 
     @media (max-width: 768px) {
+
   body {
     flex-direction: column;
-    height: auto;
   }
 
   .sidebar {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 15px;
+    border-right: none;
+    border-bottom: 2px solid #ff3c78;
   }
 
   .main {
@@ -127,14 +126,32 @@
   }
 
   .header {
-    font-size: 20px;
-    justify-content: center;
-    padding-left: 0;
+    height: auto;
+    padding: 20px;
+    font-size: 24px;
     text-align: center;
+    justify-content: center;
   }
 
   .content {
-    padding: 15px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .content h1 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: clamp(28px, 6vw, 56px);
+  line-height: 1.2;
+}
+
+  .content p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  button {
+    width: 100%;
   }
 }
   </style>
