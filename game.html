@@ -19,7 +19,7 @@
                margin: 0;
 }
  /* Класс- игра */
-..game {
+.game {
   background: #111;
   padding: 25px;
   border-radius: 20px;
@@ -100,6 +100,7 @@
 			<br>Ещё в ответах (я) и (ты).(Я) это ко мне относится, (Ты) это к тебе.
 			<br>Готова?Если да,то нажми на кнопку.
 		</p>
+		<h1>Запиши пожалуйста видео ,как ты это проходишь🙏🥺</h1>
 
 		<button onclick="ShowIntro(1)">Ехала</button>
 	</div>
@@ -174,13 +175,13 @@
 		
 		<p>Что тебе больше всего нравится во мне?</p>
 		
-		<button onclick="wrong()">Внешность</button>
+		<button onclick="wrong('И только??')">Внешность</button>
 
 		<button onclick="win(4)">Все!</button>
 
-		<button onclick="wrong()">Характер</button>
+		<button onclick="wrong('ИИИИИ ТОЛЬКО?')">Характер</button>
 
-		<button onclick="wrong()">То,как я к тебе отношусь</button>
+		<button onclick="wrong('Уверена ,что только это?')">То,как я к тебе отношусь</button>
 
 		<div id="result4" class="restext"></div>
 
@@ -291,7 +292,7 @@
 
 		<button onclick="wrong('Конечно я рад),но ответ другой')">Пойдёшь искать</button>
 
-		<button onclick="wrong('ПИЗДЕЦ')">Найдe другого парня</button>
+		<button onclick="wrong('ПИЗДЕЦ')">Найду другого парня</button>
 
 		<div id="result11" class="restext"></div>
 	</div>
