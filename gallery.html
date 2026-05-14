@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея воспоминаний</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #2a0015, #000 60%);
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #ff3c78;
+    text-shadow: 0 0 15px #ff3c78;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.memory {
+    background: rgba(17, 17, 17, 0.95);
+    border: 1px solid rgba(255, 60, 120, 0.4);
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 60, 120, 0.35);
+    transition: 0.3s;
+}
+
+.memory:hover {
+    transform: scale(1.03);
+}
+
+.memory img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+
+.memory h2 {
+    color: #ff3c78;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.memory p {
+    color: #d0d0d0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+button {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 30px auto 0;
+    padding: 14px;
+
+    background: #1a1a1a;
+    color: white;
+
+    border: 2px solid #ff3c78;
+    border-radius: 12px;
+
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    box-shadow: 0 0 15px rgba(255, 60, 120, 0.3);
+}
+
+button:hover {
+    background: #ff3c78;
+    transform: scale(1.03);
+}
+
+.music-player{
+    max-width: 450px;
+    margin: 0 auto 30px auto;
+    padding: 18px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 60, 120, .3);
+    border-radius: 18px;
+    box-shadow: 0 0 15px rgba(255, 60, 120, .15);
+    text-align: center;
+}
+
+.song-title{
+    color: #ff9dbd;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.falling-heart {
+    position: fixed;
+    top: -30px;
+    color: #ff3c78;
+    font-size: 22px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+@media (max-width: 768px) {
+    .memory img {
+        height: 230px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📸 Галерея воспоминаний ❤️</h1>
+
+    <div class="subtitle">
+        Маленькие моменты, которые для меня очень важны
+    </div>
+
+    <div class="music-player">
+        <div class="song-title">
+            🎵 Атмосфера воспоминаний 
+        </div>
+
+        <button onclick="toggleGalleryMusic()" id="galleryMusicBtn">
+            ▶️ Включить музыку
+        </button>
+    </div>
+
+    <div class="gallery">
+
+        <div class="memory">
+            <img src="foto/photo15.png" alt="Фото 1">
+            <h2>Наша первая совметсная фотка🥰</h2>
+            <p>
+                Это фото я обожаю ,так как ты ко мне прижалась.
+            <br>Я не ожидал такого,но было так приятно!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo22.jpg" alt="Фото 2">
+            <h2>Я ДАААААА!!!!!!</h2>
+            <p>
+                Тот самый день,где я предложил руку и сердце!
+            <br>И тот самый ,мой любимый ответ"Я ДААААА!"Я так счастлив был.❤️
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo3.jpg" alt="Фото 3">
+            <h2>Я не спавший сутки,но все равно вышел с тобой </h2>
+            <p>
+                Как же я был заебан,но ты для меня важнее чем сон!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo4.jpg" alt="Фото 4">
+            <h2>У тебя дома!💋</h2>
+            <p>
+                Момент когда мы кофе пили и болтали о всяком.
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo5.jpg" alt="Фото 5">
+            <h2>Снова у тебя!</h2>
+            <p>
+                А вот тут,ты такая крутая и так счастлива!😍
+            <br>Хочу что бы ты всегда такой была!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo1.jpg" alt="Фото 6">
+            <h2>Голубки😭❤️</h2>
+            <p>
+                По моему лицу и по твоим глазам
+            <br>Можно было и не гадать,что мы счастливы!       
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo24.jpg" alt="Фото 7">
+            <h2>ОБЪЕБЫШЬ</h2>
+            <p>
+                Последний твой день,но столько счаться было тогда
+            <br>Ну и один не приятный момент ,но все наладилось.
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo7.jpg" alt="Фото 8">
+            <h2>МИРНЫЙ ДОГОВОР</h2>
+            <p>
+                Ты говорила,что это фото тебе нравится ,вот и поставил 
+            <br>Момент ,когда Лера переборщила,а потом все стали обниматься 
+            <br>Породируя вас,я это прозвал "Мирный договор"
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo18.jpg" alt="Фото 9">
+            <h2>СТЕСНЯШКИ</h2>
+            <p>
+                А тут ,я дышал тебе в шею 
+            <br>Делая вид перед Соней,что целую тебя в шею
+            <br>p.s(Вроде даже и целовал тебя в шею🫦)
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo19.jpg" alt="Фото 10">
+            <h2>Цём💋</h2>
+            <p>
+                Ладно,мы не поцеловались именно на фото
+            <br>А перед Соней типо.(Но потом целовались😈)
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo28.jpg" alt="Фото 11">
+            <h2>Ощущения,что ты рядом</h2>
+            <p>
+                Первый сон,на звонке с тобой!
+            <br>Я всегда ощущаю,что ты рядом,когда так спим🥺❤️
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo31.jpg" alt="Фото 12">
+            <h2>ВОТ ЭТО НИХУЯ СЕБЕ!</h2>
+            <p>
+                НЕ НУ КАК?Как можно было забыть(
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo21.jpg" alt="Фото 13">
+            <h2>Показали наши способности</h2>
+            <p>
+                Первый и последний раз,когда перед компанией поцеловались.
+            <br>НУ ОНИ НАЧАЛИ ПОДКАЛЫВАТЬ.БЛЯДИ 
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo2.jpg" alt="Фото 14">
+            <h2>Было время</h2>
+            <p>
+                Последний день,когда мы на басик пошли.
+            <br>Мы и вся наша компашка додиков.Но зато весело было!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo16.jpg" alt="Фото 15">
+            <h2>Тут слов не надо,🖕</h2>
+            <p>
+                По сути фак,это обидно,но мне было приятно.
+                Не от жеста,а от того,что ты ток на меня и обращала внимание!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo20.jpg" alt="Фото 16">
+            <h2>Целуешь руки фотографа?)</h2>
+            <p>
+                Фото,которое тебе не нравится,
+                а я обожаю.Эти эмоции,эти милые глаза,
+                эта прекрасная улбыка.Бля люблюююююю.😭❤️
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo17.jpg" alt="Фото 17">
+            <h2>Моё счатье,на моём плече🥹</h2>
+            <p>
+                Моё любимое фото,по совместительству
+                любимый момент.Ты не представляешь,какой 
+                лютый кайф я словил и смущение,когда ты легла.
+                Тут я понял,что не хочу тебя терять!
+                Люблю тебя 😭❤️❤️❤️
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo8.jpg" alt="Фото 18">
+            <h2>Нежданчик(я согласен)</h2>
+            <p>
+                Честно не ожидал такого,
+                но мне нравится ;)
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo9.jpg" alt="Фото 19">
+            <h2>Хуй,пися,сися</h2>
+            <p>
+                А вот тут,ты уже балуешься 
+                но я не против,по этому,буду рад что ты балуешься!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo23.jpg" alt="Фото 20">
+            <h2>ТВОЙ БРЕНД КОЛЫ</h2>
+            <p>
+                Вы с Алисой,решили прорекламировать, тебя и твой бренд?
+                Реклам отличная!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo11.jpg" alt="Фото 21">
+            <h2>Богиня😍</h2>
+            <p>
+                До сих пор,у меня на обоях.
+                ТЫ прям богиня.Ты всегда богиня!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo30.jpg" alt="Фото 22">
+            <h2>МИМИМИ</h2>
+            <p>
+                Вот она,самая милая и божественая девочка на все белом небе!!!!!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo10.jpg" alt="Фото 23">
+            <h2>Заводишь!</h2>
+            <p>
+                Ну прикрыла бы чуть,ради приличия!
+                Милашка-вкусняшка ты моя❤️
+            </p>            
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo6.jpg" alt="Фото 24">
+            <h2>Батон😭</h2>
+            <p>
+                Это наш сынок... Представь,как он вырос уже,
+                жаль мы этого не видим и врядли увидим(
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo12.jpg" alt="Фото 25">
+            <h2>НУ МОДЕЛЬ</h2>
+            <p>
+                Мне нравится,что ты сияешь,ярким лучом света!
+                Ты так прекрастна,я даже передать не могу.
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo26.jpg" alt="Фото 26">
+            <h2>Наш первый созвон.</h2>
+            <p>
+                Боже первый созвон 
+                за этот час,мы столько успели вспомнить,и рассказать.
+                Прям настольгия!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo27.jpg" alt="Фото 27">
+            <h2>Клоун!)</h2>
+            <p>
+                А тут я тебя смешил,своими причисонами!
+                Тогда вроде и ташка была,вы вместе угорали.
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo29.jpg" alt="Фото 28">
+            <h2>Легендарная ава</h2>
+            <p>
+                Этот мой портрет ,велеколепен.
+                Столько счастья у меня было,от того что ты нарисовала меня.
+                А у тебя счастья ,от того,что я поставил на аву.Велеколепное чувство!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo25.jpg" alt="Фото 29">
+            <h2>НУ И АНГЕЛ!</h2>
+            <p>
+                Боже,как ты баловалась,тогда и пугала меня 😂
+                Давай и меня накрасишь?)
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo13.jpg" alt="Фото 30">
+            <h2>Огонь🔥</h2>
+            <p>
+                Это просто секс.Ну прям модель😍
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo14.jpg" alt="Фото 31">
+            <h2>БОГИНЯ</h2>
+            <p>
+                А вот и снова моя маленькая,милая,модель.
+                Боже какая же ты великолепна,я не могу 😭😍
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo32.jpg" alt="Фото 32">
+            <h2>Вот 2 моя белая половинка!</h2>
+            <p>
+                Наши велеколепные руки,которые деражлись вместе.
+                Тогда я увидил в них искру счастья,которая на тот момент давно угасла!
+                А ещё увидил,как Вадим обиделся.
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo33.jpg" alt="Фото 33">
+            <h2>"МУЗИКАНТ"</h2>
+            <p>
+                Долгождный день,когда мы вместе играли что-то.
+                Так долго хотели этого и сделали.Тогда я от стыда 
+                обложался.Ну просто криво играл,но ты оценила)
+                и малой тоже)
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo34.jpg" alt="Фото 34">
+            <h2>Рука художника?</h2>
+            <p>
+                Блин,это просто огонь арт со мной!
+                И когда ты сказала,что это рука художника,
+                Я так был рад,что пярм прочувстовал,как ты меня гладишь по щеке🥹❤️
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo35.jpg" alt="Фото 35">
+            <h2>Первая копия меня!</h2>
+            <p>
+                Это первый раз когда меня рисуют!
+                Честно,я был в восторге,от того ,что ты меня нарисовала.
+                Мне так понравилось,что ты передала меня на картинку,в точности просто!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo36.jpg" alt="Фото 36">
+            <h2>С Днём рождения зайка😭❤️</h2>
+            <p>
+                Первый раз,когда называл тебя зайкой🥺
+                Честно,я так никого не называл,просто тогда,я уже был влюблен в тебя по уши.
+                И я так рад был,что тебе понравилось,моё скромное поздравление😭.
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo37.jpg" alt="Фото 37">
+            <h2>ОСЖУДАЮ!!!!!</h2>
+            <p>
+                ФОТО ЛЕГЕНДА!Но осуждаю.
+                Вот это ебать я извращенец,надо было тебя за сисю,а не его!!!!
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo38.jpg" alt="Фото 38">
+            <h2>ДАДА Я БОГ😎</h2>
+            <p>
+                Как ты молилась,что бы я тебя не убил))
+                Госопди,я это запомню на веки.
+                (Правда:Ты умоляла сделать скрин!)
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo39.jpg" alt="Фото 39">
+            <h2>БЛЯ ДАВАЙ!</h2>
+            <p>
+                Признайся,давно уже так хочешь меня искусать?)
+                Я же знаю,что да!😈
+                ГАААЗ!🫦
+            </p>
+        </div>
+
+        <div class="memory">
+            <img src="foto/photo40.jpg" alt="Фото 40">
+            <h2>Альберт младший</h2>
+            <p>
+                А вот тут,мы наблюдаем ,как наш вертуальный сынок ,растет.
+                Боже как же он вырос щас,горжусь сыном !
+            </p>
+        </div>
+        <button onclick="window.location.href='index.html'">
+        🏠 Назад на главную
+    </button>
+</div>
+
+<audio id="galleryMusic" loop src="leto.m4a"></audio>
+<script>
+
+    const galleryMusic = document.getElementById("galleryMusic");
+    const galleryMusicBtn = document.getElementById("galleryMusicBtn");
+
+    function toggleGalleryMusic(){
+        if(galleryMusic.paused){
+            galleryMusic.volume = 0.25;
+            galleryMusic.play();
+            galleryMusicBtn.innerHTML = "⏸️ Пауза";
+        }
+        else{
+            galleryMusic.pause();
+            galleryMusicBtn.innerHTML = "▶️ Включить музыку";
+        }
+    }
+
+    function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("falling-heart");
+
+    heart.innerHTML =
+    ["❤️","💗","💕","💖"]
+    [Math.floor(Math.random() * 4)];
+
+    heart.style.left =
+    Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+    Math.random() * 3 + 4 + "s";
+
+    heart.style.fontSize =
+    Math.random() * 12 + 16 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+setInterval(createHeart, 500);
+
+</script>
+</body>
+</html>

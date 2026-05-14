@@ -117,6 +117,33 @@ button:hover {
     transform: scale(1.03);
 }
 
+.music-player{
+    margin-bottom: 25px;
+    padding: 18px;
+    background: rgba(255, 255, 255,.04);
+    border: 1px solid rgba(255, 60, 120, .3);
+    border-radius: 18px;
+    box-shadow: 0 0 15px rgba(255, 60, 120, .15);
+    backdrop-filter: blur(5px);
+}
+
+.song-title{
+    color: #ff9dbd;
+    margin-bottom: 15px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.music-buttons{
+
+    display: flex;
+    gap: 10px;
+}
+
+.music-buttons button{
+    flex: 1;
+}
+
 @media (max-width: 768px) {
     .card {
         padding: 20px;
@@ -153,8 +180,21 @@ button:hover {
         От: Твоего любимого
     </div>
 
+    <div class="music-player">
+       <div class="song-title" id="songTitle"></div>
+        <div class="music-buttons">
+
+            <button onclick="toggleMusic()" id="musicBtn">
+                ▶️ Включить
+            </button>
+
+            <button onclick="nextSong()">
+                ⏭️ Следующая 
+            </button>
+        </div>
+    </div>
     <!-- Если хочешь фото, назови его photo.jpg и положи рядом с этим файлом -->
-    <!-- <img src="photo.jpg" class="photo"> -->
+    <img src="myLove.jpg" class="photo">
 
     <p id="typeText"></p>
     <button id="nextBtn" onclick="nextText()">
@@ -171,6 +211,9 @@ button:hover {
 
 </div>
 
+<audio id="bgMusic">
+
+</audio>
 <script>
 
 const texts = [
@@ -301,7 +344,60 @@ function nextText() {
 
 typeWriter();
 
-</script>
+const songs = [
+    {
+        title: "🎵 ssshhhiiittt - Вишенка",
+        file: "ssshhhiiittt.m4a"
+    },
 
+    {
+        title: "🎵 Дурной вкус - Висели вместе",
+        file: "music2.m4a"
+    },
+
+    {
+        title: "🎵 Ласпабикт - Ветром стать",
+        file: "vetrom.m4a"
+    }
+
+];
+
+let currentSong = 0;
+
+const music = document.getElementById("bgMusic");
+const songTitle = document.getElementById("songTitle");
+const musicBtn = document.getElementById("musicBtn");
+
+music.src = songs[currentSong].file;
+songTitle.innerHTML = songs[currentSong].title;
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.volume = 0.3;
+        music.play();
+        musicBtn.innerHTML = "⏸️ Пауза";
+    }
+
+    else{
+        music.pause();
+        musicBtn.innerHTML = "▶️ Включить";
+    }
+}
+
+function nextSong(){
+    currentSong++;
+
+    if (currentSong >= songs.length){
+        currentSong = 0;
+    }
+
+    music.src = songs[currentSong].file;
+    songTitle.innerHTML = songs[currentSong].title;
+    music.play();
+    musicBtn.innerHTML = "⏸️ Пауза";
+}
+
+</script>
 </body>
 </html>

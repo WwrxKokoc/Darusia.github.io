@@ -70,6 +70,59 @@
 		font-size: 22px;
 	}
 
+.falling-heart {
+    position: fixed;
+    top: -30px;
+    color: #ff3c78;
+    font-size: 22px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.final-text{
+
+    margin-top: 25px;
+
+    color: #ffd1df;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    text-shadow: 0 0 10px rgba(255,60,120,.3);
+
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 @media (max-width: 768px) {
   .game {
     width: 95%;
@@ -359,16 +412,48 @@
 	</div>
 
 	<div id="PrizzeScreen" class="game" style="display: none;">
+		<h1>❤️ Поздравление ❤️</h1>
+
+<p>
+    Тут тебя поздравили твои друзья 🥺❤️
+</p>
+
+<video width="100%" controls id="friendsVideo" preload="none">
+    <source src="friends.mp4" type="video/mp4">
+</video>
+
+<br><br>
+
+<button id="showMyVideoBtn" onclick="showMyVideo()">
+    🥺 Последнее сообщение
+</button>
+
+<div id="myVideoBlock" style="display:none;">
 		<h1>Поздравляю со званием САМАЯ ЛУЧШАЯ ДЕВУШКА!❤️</h1>
+    <h2 style="color:#00e5ff;">
+        ❤️ Видео от меня
+    </h2>
 
-		<video width="100%" controls id="finalVideo" preload="none" muted>
-			<source src="video.mp4" type="video/mp4">
-		</video>
-		<br><br>
-			<button onclick="window.location.href='index.html'">
-				🏠Главный экран 
-			</button>
+    <video width="100%" controls id="myVideo" preload="none">
+        <source src="myvideo.mp4" type="video/mp4">
+    </video>
 
+    <p class="final-text">
+        ❤️ Спасибо тебе за всё.
+        <br><br>
+
+         Я очень тебя люблю
+    		 и надеюсь,
+    		 что этот сайт смог подарить тебе эмоции 🥺❤️
+    </p>
+
+</div>
+
+<br>
+
+<button onclick="window.location.href='index.html'">
+    🏠 Главный экран
+</button>
 	</div>
 	<script>
 		//1.Функция,которая показывает "Уровень Х"
@@ -449,24 +534,49 @@
 			});
 	}
 
-		function showPrizze(){
-			document.getElementById("FinalScreen").style.display = "none";
-			document.getElementById("PrizzeScreen").style.display = "block";
+	function showPrizze(){
 
-			const video = document.getElementById("finalVideo");
-			video.muted = false;
-			video.currentTime = 0;//на всякий случай
-			video.play()
-		}
-		window.onload = function(){
-			const video = document.getElementById("finalVideo");
+    document.getElementById("FinalScreen").style.display = "none";
 
-			if (video) {
-				video.pause();
-				video.currentTime = 0;
-				video.muted = true;
-			}
-		};
+    document.getElementById("PrizzeScreen").style.display = "block";
+
+    const friendsVideo = document.getElementById("friendsVideo");
+
+    friendsVideo.currentTime = 0;
+
+    friendsVideo.play();
+}
+function showMyVideo(){
+
+    document.getElementById("myVideoBlock").style.display = "block";
+
+    document.getElementById("showMyVideoBtn").style.display = "none";
+
+    const myVideo = document.getElementById("myVideo");
+
+    myVideo.currentTime = 0;
+
+    myVideo.play();
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("falling-heart");
+
+    heart.innerHTML = ["❤️", "💗", "💕", "💖"][Math.floor(Math.random() * 4)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+    heart.style.fontSize = Math.random() * 12 + 16 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+setInterval(createHeart, 500);
 	</script>
 </body>
 </html>
