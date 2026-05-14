@@ -60,10 +60,11 @@ h1 {
 
 .memory img {
     width: 100%;
-    height: 260px;
-    object-fit: cover;
+    max-height: 420px;
+    object-fit: contain;
     border-radius: 15px;
     margin-bottom: 12px;
+    background: #000;
 }
 
 .memory h2 {
@@ -147,13 +148,15 @@ button:hover {
     }
 }
 @media (max-width: 768px) {
-    .memory img {
-        height: 230px;
+     .memory img {
+        max-height: 320px;
+        object-fit: contain;
     }
 
     h1 {
         font-size: 26px;
     }
+}
 }
 </style>
 </head>
