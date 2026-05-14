@@ -164,21 +164,6 @@
     pointer-events: none;
 }
 
-.love-quote{
-
-    margin-top: 25px;
-
-    text-align: center;
-
-    color: #ff9dbd;
-
-    font-size: 18px;
-
-    opacity: .9;
-
-    text-shadow: 0 0 10px rgba(255,60,120,.3);
-}
-
 @keyframes fall {
     0% {
         transform: translateY(-50px) rotate(0deg);
@@ -194,6 +179,41 @@
         opacity: 0;
     }
 }
+.love-quote{
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #ff9dbd;
+
+    font-size: 18px;
+
+    opacity: .95;
+
+    text-shadow: 0 0 10px rgba(255,60,120,.3);
+
+    animation: glowText 3s ease-in-out infinite;
+}
+
+@keyframes glowText{
+
+    0%{
+        opacity:.7;
+    }
+
+    50%{
+        opacity:1;
+        text-shadow:
+        0 0 10px rgba(255,60,120,.5),
+        0 0 20px rgba(255,60,120,.3);
+    }
+
+    100%{
+        opacity:.7;
+    }
+}
+
 @media (max-width: 768px) {
   body {
     flex-direction: column;
@@ -326,12 +346,12 @@ button:hover {
         <h2>❤️Мы вместе уже❤️</h2>
         <div id = "loveTimer">Загруска...</div>
       </div>
+      <div class="love-quote">
+    И я всё ещё влюбляюсь в тебя каждый день ❤️
+      </div>
     </div>
-  </div>
 
-  <div class="love-quote">
-    “Ты — моё любимое уведомление ❤️”
-</div>
+  </div>
 
 <script>
   const startDate = new Date("2025-08-05T02:43:24");
